@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %} Users {% endblock %}
+{% block content %}
+	<div class="row">
+		<div class="col-6">
+			{% for user in users %} 
+				<form action="{{url_for('update_user', id = user.id)}}" method="post" class="col">
+					<div class="row">
+						<input type="text" name="first_name" class="form-control" placeholder="First name" aria-label="First name" value="{{user.first_name}}">
+					</div>
+					<div class="row">
+						<input type="text" name="last_name" class="form-control" placeholder="Last name" aria-label="Last name" value="{{user.last_name}}">
+					</div>
+					<div class="row">
+						<input type="email" name="email" class="form-control" placeholder="Email" aria-label="Email" value="{{user.email}}">
+					</div>
+					<div class="row">
+						<input type="password" name="password" class="form-control" placeholder="Passaword" aria-label="Passaword" value="{{user.password}}">
+					</div>
+					<div class="row">
+						<button class="btn btn-primary" type="submit">Submit form</button>
+					</div>
+				</form>
+			{% endfor %}
+		</div>
+{% endblock %}
